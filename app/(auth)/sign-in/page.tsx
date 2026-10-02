@@ -84,7 +84,7 @@ export default function SignInPage() {
     <main className="flex min-h-dvh items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <h1 className="mb-1 text-2xl font-semibold text-neutral-900">
-          Sign in to ALITE
+          Sign in to Analytica
         </h1>
         <p className="mb-6 text-sm text-neutral-500">
           Data analysis, statistics and reports

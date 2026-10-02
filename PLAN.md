@@ -228,7 +228,7 @@ Each phase ends with: `npm run lint && npm run typecheck && npx vitest run` gree
 1. Neon account → `DATABASE_URL` (free tier fine)
 2. Groq API key (console.groq.com)
 3. Vercel account (+ GitHub repo for Git integration, or we deploy via Vercel CLI)
-4. App name/branding preference for reports (default: "ALITE Analytics" until you say otherwise)
+4. App name/branding preference for reports — **settled: "Analytica"**
 
 ## 8. Out of scope (unless you say otherwise)
 

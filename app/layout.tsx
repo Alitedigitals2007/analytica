@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ALITE",
+  title: "Analytica",
   description: "Data analysis, statistics and reports",
 };
 

@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <main className="mx-auto flex min-h-dvh max-w-2xl flex-col items-center justify-center px-4 text-center">
       <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl">
-        ALITE
+        Analytica
       </h1>
       <p className="mt-4 max-w-md text-base text-neutral-600">
         Upload your data, run real statistics, build charts and export
