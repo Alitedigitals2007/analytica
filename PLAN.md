@@ -26,7 +26,7 @@ Research done against current (Oct 2026) package state — three gotchas found a
 | Layer | Choice | Why / gotcha |
 |---|---|---|
 | Framework | Next.js App Router, TypeScript, Tailwind CSS | Spec default. `create-next-app@latest` |
-| UI kit | shadcn/ui (cards, tabs, dialogs, toasts, drawers, tooltips) + TanStack Table | Matches spec §68 UI requirements |
+| UI kit | Hand-rolled Tailwind components (shadcn CLI hung on this machine — revisit later) + TanStack Table for big tables | Matches spec §68 UI requirements |
 | DB | Neon Postgres, `@neondatabase/serverless` + Drizzle ORM (`drizzle-orm` stable, **not** the 1.0 RC) + `drizzle-kit` migrations | Serverless HTTP driver works locally and on Vercel |
 | Auth | Hand-rolled: `bcryptjs` + `sessions` table + httpOnly cookie; `middleware.ts` guards app routes | No framework needed for email/password only |
 | Excel/CSV read+write | SheetJS **installed from `https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz`**, tarball vendored into `/vendor` | Gotcha #2: npm registry `xlsx` is stuck at 0.18.5 (known registry bug). CDN is authoritative |
