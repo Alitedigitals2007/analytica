@@ -17,14 +17,17 @@
     "bcryptjs": "^3.0.3",
     "drizzle-orm": "^0.45.3",
     "next": "16.3.8",
+    "papaparse": "^5.7.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "server-only": "^0.0.1",
+    "xlsx": "file:vendor/xlsx-0.20.3.tgz",
     "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22.20.4",
+    "@types/papaparse": "^5.5.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^18.0.5",

@@ -20,3 +20,4 @@ export function getDb(): DB {
 }
 
 export { schema };
+export type { Project, Dataset, DatasetVersion } from "./schema";

@@ -1,8 +1,10 @@
 import {
+  integer,
   jsonb,
   pgTable,
   text,
   timestamp,
+  unique,
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
@@ -32,6 +34,39 @@ export const projects = pgTable("projects", {
     .notNull(),
 });
 
+export const datasets = pgTable("datasets", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  projectId: uuid("project_id")
+    .notNull()
+    .references(() => projects.id, { onDelete: "cascade" }),
+  name: varchar("name", { length: 255 }).notNull(),
+  source: varchar("source", { length: 32 }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+});
+
+export const datasetVersions = pgTable(
+  "dataset_versions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    datasetId: uuid("dataset_id")
+      .notNull()
+      .references(() => datasets.id, { onDelete: "cascade" }),
+    versionNumber: integer("version_number").notNull(),
+    rows: jsonb("rows").notNull(),
+    columns: jsonb("columns").notNull(),
+    operation: varchar("operation", { length: 64 }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (t) => [unique("dataset_versions_dataset_version_unique").on(t.datasetId, t.versionNumber)],
+);
+
 export const sessions = pgTable("sessions", {
   id: uuid("id").defaultRandom().primaryKey(),
   userId: uuid("user_id")
@@ -58,5 +93,7 @@ export const auditLogs = pgTable("audit_logs", {
 
 export type User = typeof users.$inferSelect;
 export type Project = typeof projects.$inferSelect;
+export type Dataset = typeof datasets.$inferSelect;
+export type DatasetVersion = typeof datasetVersions.$inferSelect;
 export type Session = typeof sessions.$inferSelect;
 export type AuditLog = typeof auditLogs.$inferSelect;
